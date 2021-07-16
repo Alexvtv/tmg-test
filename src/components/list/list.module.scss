@@ -1,0 +1,51 @@
+.listWrapper {
+  width: 100%;
+  height: auto;
+  overflow-x: auto;
+  overflow-y: visible;
+}
+
+.list {
+  width: calc(100% - 2px);
+  min-width: 460px;
+  border: 1px solid #000;
+  overflow-y: visible;
+  padding: 30px 0 15px;
+}
+
+.row {
+  margin: -15px 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.headRow {
+  margin: 0 0 15px 0;
+  font-weight: 600;
+  &>div>p {
+    margin: 0 auto;
+  }
+}
+
+.text {
+  display: inline-flex;
+  width: calc(60% - 6px);
+  text-align: left;
+  &>p {
+    padding: 0 10px;
+  }
+}
+.wordsQty {
+  display: inline-flex;
+  width: 20%;
+  &>p {
+    margin: 0 auto;
+  }
+}
+.vowelsQty {
+  display: inline-flex;
+  width: 20%;
+  &>p {
+    margin: 0 auto;
+  }
+}

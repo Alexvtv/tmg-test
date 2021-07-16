@@ -1,0 +1,28 @@
+.clarification {
+  display: inline-block;
+  padding-right: 7px;
+}
+
+.input {
+  width: 300px;
+  margin-right: 5px;
+}
+
+.button {
+  padding: 1px 15px;
+}
+
+@media (max-width: 660px) {
+  .input {
+    width: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .clarification {
+    display: block;
+  }
+  .panel {
+    padding-bottom: 20px;
+  }
+}
