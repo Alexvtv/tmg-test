@@ -3,20 +3,18 @@ import React, {useState} from 'react';
 import styles from './searchPanel.module.scss';
 
 export function SearchPanel(props) {
-    const {countHandler} = props;
-
     const [searchValue, setSearchValue] = useState('');
 
-    const handler = (value) => {
+    const countHandler = (value) => {
         setSearchValue('');
-        countHandler(value);
+        props.countHandler(value);
     }
 
     return (
         <div className={styles.panel}>
             <p className={styles.clarification}>Идентификаторы строк:</p>
             <input className={styles.input} value={searchValue} onChange={(e) => setSearchValue(e.target.value)}/>
-            <button className={styles.button} onClick={() => handler(searchValue)}>Подсчитать</button>
+            <button className={styles.button} onClick={() => countHandler(searchValue)}>Подсчитать</button>
         </div>
     );
 }

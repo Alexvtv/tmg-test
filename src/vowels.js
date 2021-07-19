@@ -1,10 +1,9 @@
 export const vowels = {
     english: /[aeiou]/gi,
-    icelandic: /[aáeéyýiíoóuúæö]/gi,
-    russian: /[аеиоуыэюя]/gi,
-    norwegian: /[aæåyoieøu]/gi,
-    spanish: /[aeéòàiou]/gi,
+    spanish: /[aeéòàioóuú]/gi,
     italian: /[aàeéiòou]/gi,
-    french: /[aeéêёiou]/gi,
-    default: /[aàáåeéёyýiíoóöòøuúæыэюя]/gi
+    french: /[aâàáeèéêёiou]/gi,
+    bulgarian: /[иуеъоа]/gi,
+    default: /[aàâáåêeèéёyýiíїoóöòøuúæыэєюя]/gi
 }
+

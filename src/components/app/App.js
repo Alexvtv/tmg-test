@@ -12,6 +12,7 @@ export function App() {
     const [data, setData] = useState([]);
 
     const lngDetector = new LanguageDetect();
+
     const toastError = (text) => toast.error(text, {
         position: 'top-right',
         autoClose: 4000
@@ -19,6 +20,9 @@ export function App() {
 
     const getVowels = (text) => vowels[lngDetector.detect(text)[0][0]] || vowels['default'];
 
+    //fetch function that allows get param 'text' from data and calculation words and vowels quantity
+    //I used a third-party service http://cors-anywhere.herokuapp.com to get the data
+    //for a successful fetching, you need to get access on this site
     const fetchData = (id) => {
         fetch(`http://cors-anywhere.herokuapp.com/tmgwebtest.azurewebsites.net/api/textstrings/${id}`, {
             headers: {
@@ -26,19 +30,19 @@ export function App() {
             }
         })
             .then((res) => res.json())
-            .then(str => {
-                const {text} = str;
-                return {
+            .then(data => {
+                const {text} = data;
+                return setData(prev => [...prev, {
                     text,
                     wordsQty: text.split(' ').length,
-                    vowelsQty: text.match(getVowels(text))?.length || 0,
-                    vowels: getVowels(text)
-                };
+                    vowelsQty: text.match(getVowels(text))?.length || 0
+                }]);
             })
-            .then(data => setData(prev => [...prev, data]))
             .catch(() => toastError('Ошибка запроса'));
     };
 
+    //function calculates arrays of correct and incorrect ids.
+    //for the correct id, we call fetch function, for the incorrect - toast with error
     const countHandler = (value) => {
         setData([]);
         const idsArray = [...new Set(value.split(/[,;]/).map(id => id.replace(/\s/g, '')))];
